@@ -38,9 +38,9 @@
 		AB229F6523FDE8760067C210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB229F6723FDE8780067C210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB229F6A23FDE8780067C210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AB229F6C23FDE8780067C210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB229F7123FDE8780067C210 /* FlashCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB229F7C23FDE8780067C210 /* FlashCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB229F6C23FDE8780067C210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/kimwang/Desktop/CSC690/project/wChat/wChat/Info.plist; sourceTree = "<absolute>"; };
+		AB229F7123FDE8780067C210 /* wChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB229F7C23FDE8780067C210 /* wChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 		AB229F5423FDE8750067C210 = {
 			isa = PBXGroup;
 			children = (
-				AB229F5F23FDE8750067C210 /* FlashCard */,
+				AB229F5F23FDE8750067C210 /* wChat */,
 				AB229F5E23FDE8750067C210 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,13 +80,13 @@
 			isa = PBXGroup;
 			children = (
 				AB229F5D23FDE8750067C210 /* wChat.app */,
-				AB229F7123FDE8780067C210 /* FlashCardTests.xctest */,
-				AB229F7C23FDE8780067C210 /* FlashCardUITests.xctest */,
+				AB229F7123FDE8780067C210 /* wChatTests.xctest */,
+				AB229F7C23FDE8780067C210 /* wChatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB229F5F23FDE8750067C210 /* FlashCard */ = {
+		AB229F5F23FDE8750067C210 /* wChat */ = {
 			isa = PBXGroup;
 			children = (
 				AB229F6023FDE8760067C210 /* AppDelegate.swift */,
@@ -96,15 +96,15 @@
 				AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */,
 				AB229F6C23FDE8780067C210 /* Info.plist */,
 			);
-			path = FlashCard;
+			path = wChat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB229F5C23FDE8750067C210 /* FlashCard */ = {
+		AB229F5C23FDE8750067C210 /* wChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB229F8523FDE8780067C210 /* Build configuration list for PBXNativeTarget "FlashCard" */;
+			buildConfigurationList = AB229F8523FDE8780067C210 /* Build configuration list for PBXNativeTarget "wChat" */;
 			buildPhases = (
 				AB229F5923FDE8750067C210 /* Sources */,
 				AB229F5A23FDE8750067C210 /* Frameworks */,
@@ -114,14 +114,14 @@
 			);
 			dependencies = (
 			);
-			name = FlashCard;
+			name = wChat;
 			productName = FlashCard;
 			productReference = AB229F5D23FDE8750067C210 /* wChat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB229F7023FDE8780067C210 /* FlashCardTests */ = {
+		AB229F7023FDE8780067C210 /* wChatTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB229F8823FDE8780067C210 /* Build configuration list for PBXNativeTarget "FlashCardTests" */;
+			buildConfigurationList = AB229F8823FDE8780067C210 /* Build configuration list for PBXNativeTarget "wChatTests" */;
 			buildPhases = (
 				AB229F6D23FDE8780067C210 /* Sources */,
 				AB229F6E23FDE8780067C210 /* Frameworks */,
@@ -132,14 +132,14 @@
 			dependencies = (
 				AB229F7323FDE8780067C210 /* PBXTargetDependency */,
 			);
-			name = FlashCardTests;
+			name = wChatTests;
 			productName = FlashCardTests;
-			productReference = AB229F7123FDE8780067C210 /* FlashCardTests.xctest */;
+			productReference = AB229F7123FDE8780067C210 /* wChatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AB229F7B23FDE8780067C210 /* FlashCardUITests */ = {
+		AB229F7B23FDE8780067C210 /* wChatUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB229F8B23FDE8780067C210 /* Build configuration list for PBXNativeTarget "FlashCardUITests" */;
+			buildConfigurationList = AB229F8B23FDE8780067C210 /* Build configuration list for PBXNativeTarget "wChatUITests" */;
 			buildPhases = (
 				AB229F7823FDE8780067C210 /* Sources */,
 				AB229F7923FDE8780067C210 /* Frameworks */,
@@ -150,9 +150,9 @@
 			dependencies = (
 				AB229F7E23FDE8780067C210 /* PBXTargetDependency */,
 			);
-			name = FlashCardUITests;
+			name = wChatUITests;
 			productName = FlashCardUITests;
-			productReference = AB229F7C23FDE8780067C210 /* FlashCardUITests.xctest */;
+			productReference = AB229F7C23FDE8780067C210 /* wChatUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +178,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB229F5823FDE8750067C210 /* Build configuration list for PBXProject "FlashCard" */;
+			buildConfigurationList = AB229F5823FDE8750067C210 /* Build configuration list for PBXProject "wChat" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -191,9 +191,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB229F5C23FDE8750067C210 /* FlashCard */,
-				AB229F7023FDE8780067C210 /* FlashCardTests */,
-				AB229F7B23FDE8780067C210 /* FlashCardUITests */,
+				AB229F5C23FDE8750067C210 /* wChat */,
+				AB229F7023FDE8780067C210 /* wChatTests */,
+				AB229F7B23FDE8780067C210 /* wChatUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -254,12 +254,12 @@
 /* Begin PBXTargetDependency section */
 		AB229F7323FDE8780067C210 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB229F5C23FDE8750067C210 /* FlashCard */;
+			target = AB229F5C23FDE8750067C210 /* wChat */;
 			targetProxy = AB229F7223FDE8780067C210 /* PBXContainerItemProxy */;
 		};
 		AB229F7E23FDE8780067C210 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB229F5C23FDE8750067C210 /* FlashCard */;
+			target = AB229F5C23FDE8750067C210 /* wChat */;
 			targetProxy = AB229F7D23FDE8780067C210 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -406,7 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AV26UC445F;
-				INFOPLIST_FILE = FlashCard/Info.plist;
+				INFOPLIST_FILE = wChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AV26UC445F;
-				INFOPLIST_FILE = FlashCard/Info.plist;
+				INFOPLIST_FILE = wChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +453,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashCard.app/FlashCard";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wChat.app/wChat";
 			};
 			name = Debug;
 		};
@@ -474,7 +474,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashCard.app/FlashCard";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wChat.app/wChat";
 			};
 			name = Release;
 		};
@@ -521,7 +521,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB229F5823FDE8750067C210 /* Build configuration list for PBXProject "FlashCard" */ = {
+		AB229F5823FDE8750067C210 /* Build configuration list for PBXProject "wChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB229F8323FDE8780067C210 /* Debug */,
@@ -530,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB229F8523FDE8780067C210 /* Build configuration list for PBXNativeTarget "FlashCard" */ = {
+		AB229F8523FDE8780067C210 /* Build configuration list for PBXNativeTarget "wChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB229F8623FDE8780067C210 /* Debug */,
@@ -539,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB229F8823FDE8780067C210 /* Build configuration list for PBXNativeTarget "FlashCardTests" */ = {
+		AB229F8823FDE8780067C210 /* Build configuration list for PBXNativeTarget "wChatTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB229F8923FDE8780067C210 /* Debug */,
@@ -548,7 +548,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB229F8B23FDE8780067C210 /* Build configuration list for PBXNativeTarget "FlashCardUITests" */ = {
+		AB229F8B23FDE8780067C210 /* Build configuration list for PBXNativeTarget "wChatUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB229F8C23FDE8780067C210 /* Debug */,

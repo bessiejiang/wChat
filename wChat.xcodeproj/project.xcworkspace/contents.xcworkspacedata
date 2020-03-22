@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FlashCard.xcodeproj">
+      location = "self:/Users/kimwang/Desktop/CSC690/project/wChat/wChat.xcodeproj">
    </FileRef>
 </Workspace>
