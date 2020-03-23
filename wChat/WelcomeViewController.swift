@@ -64,6 +64,7 @@ class WelcomeViewController: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)//unwrap safely and translate to human language
                 return
             }
+            goToApp()
         }
     }
     func registerUser() {
@@ -78,6 +79,13 @@ class WelcomeViewController: UIViewController {
         emailTextField.text = ""
         passwordTextField.text = ""
         repeatPasswordTextField.text = ""
+    }
+    
+    
+    
+    //MARK: goToApp:
+    func goToApp() {//main storyboard has two parts, login part and 
+        
     }
 
 }

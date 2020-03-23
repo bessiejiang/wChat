@@ -328,11 +328,12 @@ func saveUserLocally(fUser: FUser) {
 
 //New firestore
 func fetchCurrentUserFromFirestore(userId: String) {
-    
+    //get instance from db
     reference(.User).document(userId).getDocument { (snapshot, error) in
         
         guard let snapshot = snapshot else {  return }
         
+        //if instance exists, retrieve it and save it in local
         if snapshot.exists {
             print("updated current users param")
             
