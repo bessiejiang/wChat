@@ -16,6 +16,11 @@
 		AB229F6823FDE8780067C210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6723FDE8780067C210 /* Assets.xcassets */; };
 		AB229F6B23FDE8780067C210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */; };
 		ABCFC12A24285DA700F5EE8E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12924285DA700F5EE8E /* .gitignore */; };
+		ABCFC12E242865E500F5EE8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */; };
+		ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC12F2428723D00F5EE8E /* FUsers.swift */; };
+		ABCFC132242872F200F5EE8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC131242872F200F5EE8E /* Constants.swift */; };
+		ABCFC13424287A5100F5EE8E /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC13324287A5100F5EE8E /* CollectionReference.swift */; };
+		ABCFC13624287B1600F5EE8E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		AB229F7123FDE8780067C210 /* wChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB229F7C23FDE8780067C210 /* wChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABCFC12924285DA700F5EE8E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ABCFC12F2428723D00F5EE8E /* FUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUsers.swift; sourceTree = "<group>"; };
+		ABCFC131242872F200F5EE8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ABCFC13324287A5100F5EE8E /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
+		ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		BE1105A5920D09D314ED08CD /* Pods-wChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wChatTests.release.xcconfig"; path = "Target Support Files/Pods-wChatTests/Pods-wChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		D66CFB1D8DC8452805438976 /* Pods_wChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC9A61C86C534F49FADEE69 /* Pods_wChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,10 +144,15 @@
 			children = (
 				AB229F6023FDE8760067C210 /* AppDelegate.swift */,
 				AB10BBE0242765F100268D39 /* WelcomeViewController.swift */,
+				ABCFC12F2428723D00F5EE8E /* FUsers.swift */,
+				ABCFC131242872F200F5EE8E /* Constants.swift */,
+				ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */,
+				ABCFC13324287A5100F5EE8E /* CollectionReference.swift */,
 				AB229F6423FDE8760067C210 /* Main.storyboard */,
 				AB229F6723FDE8780067C210 /* Assets.xcassets */,
 				AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */,
 				AB229F6C23FDE8780067C210 /* Info.plist */,
+				ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */,
 			);
 			path = wChat;
 			sourceTree = "<group>";
@@ -253,6 +268,7 @@
 			files = (
 				ABCFC12A24285DA700F5EE8E /* .gitignore in Resources */,
 				AB229F6B23FDE8780067C210 /* LaunchScreen.storyboard in Resources */,
+				ABCFC12E242865E500F5EE8E /* GoogleService-Info.plist in Resources */,
 				AB229F6823FDE8780067C210 /* Assets.xcassets in Resources */,
 				AB229F6623FDE8760067C210 /* Main.storyboard in Resources */,
 			);
@@ -384,6 +400,10 @@
 			files = (
 				AB10BBE1242765F100268D39 /* WelcomeViewController.swift in Sources */,
 				AB229F6123FDE8760067C210 /* AppDelegate.swift in Sources */,
+				ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */,
+				ABCFC13424287A5100F5EE8E /* CollectionReference.swift in Sources */,
+				ABCFC132242872F200F5EE8E /* Constants.swift in Sources */,
+				ABCFC13624287B1600F5EE8E /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

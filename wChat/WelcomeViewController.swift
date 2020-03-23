@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class WelcomeViewController: UIViewController {
     
@@ -27,19 +28,56 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        print("login")
+//        print("login")
+        dismissKeyboard()
+        if emailTextField.text != "" && passwordTextField.text != "" {
+            logingUser()
+        } else {
+            ProgressHUD.showError("Email or password is missing!")
+        }
+        
     }
 
     @IBAction func registerButtonPressed(_ sender: Any) {
-        print("register")
-
+//        print("register")
+        dismissKeyboard()
+        if emailTextField.text != "" && passwordTextField.text != "" && repeatPasswordTextField.text != ""{
+            registerUser()
+            
+        } else {
+            ProgressHUD.showError("All fileds are required!")
+        }
     }
 
     @IBAction func backgroundTap(_ sender: Any) {
-        print("dismiss")
+//        print("dismiss")
+        dismissKeyboard()
+    }
+    
+    //MARK: helper functions
+    func logingUser() {
+//        print("loging in")
+        ProgressHUD.show("Login...")
+        //unwarpping here is safe becuase we check empty before
+        FUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+            if error != nil {
+                ProgressHUD.showError(error!.localizedDescription)//unwrap safely and translate to human language
+                return
+            }
+        }
+    }
+    func registerUser() {
+        print("registering")
 
     }
     
-   
+    func dismissKeyboard() {
+        self.view.endEditing(false)
+    }
+    func cleanTextField() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        repeatPasswordTextField.text = ""
+    }
 
 }
