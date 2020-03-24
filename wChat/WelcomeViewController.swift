@@ -42,7 +42,15 @@ class WelcomeViewController: UIViewController {
 //        print("register")
         dismissKeyboard()
         if emailTextField.text != "" && passwordTextField.text != "" && repeatPasswordTextField.text != ""{
-            registerUser()
+            if passwordTextField.text == repeatPasswordTextField.text {
+                registerUser()
+
+            } else {
+                ProgressHUD.showError("Passwords don't match!")
+
+            }
+            
+            
             
         } else {
             ProgressHUD.showError("All fileds are required!")
@@ -64,14 +72,17 @@ class WelcomeViewController: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)//unwrap safely and translate to human language
                 return
             }
-            goToApp()
+            self.goToApp()//in closure, need a self keyword
         }
     }
+   
     func registerUser() {
-        print("registering")
+        cleanTextField()
+        dismissKeyboard()
+        performSegue(withIdentifier: "welcomeToFinishReg", sender: self)
+        //           print("registering")
 
     }
-    
     func dismissKeyboard() {
         self.view.endEditing(false)
     }
@@ -81,11 +92,16 @@ class WelcomeViewController: UIViewController {
         repeatPasswordTextField.text = ""
     }
     
-    
+
     
     //MARK: goToApp:
     func goToApp() {//main storyboard has two parts, login part and 
+        ProgressHUD.dismiss()
+        cleanTextField()
+        dismissKeyboard()
         
+        print("show the app")
+        //present app here:
     }
 
 }

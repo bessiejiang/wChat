@@ -21,6 +21,7 @@
 		ABCFC132242872F200F5EE8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC131242872F200F5EE8E /* Constants.swift */; };
 		ABCFC13424287A5100F5EE8E /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC13324287A5100F5EE8E /* CollectionReference.swift */; };
 		ABCFC13624287B1600F5EE8E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */; };
+		ABCFC1382428CF0E00F5EE8E /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC1372428CF0E00F5EE8E /* FinishRegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		ABCFC131242872F200F5EE8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ABCFC13324287A5100F5EE8E /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		ABCFC1372428CF0E00F5EE8E /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		BE1105A5920D09D314ED08CD /* Pods-wChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wChatTests.release.xcconfig"; path = "Target Support Files/Pods-wChatTests/Pods-wChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		D66CFB1D8DC8452805438976 /* Pods_wChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC9A61C86C534F49FADEE69 /* Pods_wChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,11 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				AB229F6023FDE8760067C210 /* AppDelegate.swift */,
+				ABCFC1372428CF0E00F5EE8E /* FinishRegistrationViewController.swift */,
 				AB10BBE0242765F100268D39 /* WelcomeViewController.swift */,
-				ABCFC12F2428723D00F5EE8E /* FUsers.swift */,
-				ABCFC131242872F200F5EE8E /* Constants.swift */,
-				ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */,
-				ABCFC13324287A5100F5EE8E /* CollectionReference.swift */,
+				ABCFC13B2428D0A900F5EE8E /* Classes */,
+				ABCFC1392428CF2900F5EE8E /* Helpers */,
 				AB229F6423FDE8760067C210 /* Main.storyboard */,
 				AB229F6723FDE8780067C210 /* Assets.xcassets */,
 				AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */,
@@ -155,6 +156,24 @@
 				ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */,
 			);
 			path = wChat;
+			sourceTree = "<group>";
+		};
+		ABCFC1392428CF2900F5EE8E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ABCFC13324287A5100F5EE8E /* CollectionReference.swift */,
+				ABCFC131242872F200F5EE8E /* Constants.swift */,
+				ABCFC13524287B1600F5EE8E /* HelperFunctions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ABCFC13B2428D0A900F5EE8E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ABCFC12F2428723D00F5EE8E /* FUsers.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +422,7 @@
 				ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */,
 				ABCFC13424287A5100F5EE8E /* CollectionReference.swift in Sources */,
 				ABCFC132242872F200F5EE8E /* Constants.swift in Sources */,
+				ABCFC1382428CF0E00F5EE8E /* FinishRegistrationViewController.swift in Sources */,
 				ABCFC13624287B1600F5EE8E /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
