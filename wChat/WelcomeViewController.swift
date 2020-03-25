@@ -100,9 +100,9 @@ class WelcomeViewController: UIViewController {
         ProgressHUD.dismiss()
         cleanTextField()
         dismissKeyboard()
-        
         print("show the app")
-        //present app here:
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController//initialize storyboard
+        self.present(mainView, animated: true, completion: nil)
     }
     
     //MARK: Navigation

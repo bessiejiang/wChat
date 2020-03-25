@@ -34,7 +34,7 @@ class FinishRegistrationViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        cleanTextField()
+//        cleanTextField()
         dismissKeyboard()
         self.dismiss(animated: true, completion: nil)
     }
@@ -50,6 +50,7 @@ class FinishRegistrationViewController: UIViewController {
                     ProgressHUD.showError(error!.localizedDescription)
                     return
                 }
+//                print("prepare to register users")
                 self.registerUser()
             }
                 
@@ -74,6 +75,8 @@ class FinishRegistrationViewController: UIViewController {
                 tempDictionary[kAVATAR] = avatar
                 //finishRegistration
                 //inside callback closure, therefore we need to use a slef keyword
+//                print("prepare to finish register users")
+
                 self.finishRegistration(withValues: tempDictionary)
             }
         } else {
@@ -96,8 +99,19 @@ class FinishRegistrationViewController: UIViewController {
                 return
             }
             ProgressHUD.dismiss()
+//            print("dismissed")
+            self.goToApp()
             //go to app
         }
+    }
+    func goToApp() {
+//        cleanTextField()
+        dismissKeyboard()
+        
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController//initialize storyboard
+        print("mainView created")
+        self.present(mainView, animated: true, completion: nil)
+        
     }
     func dismissKeyboard() {
         self.view.endEditing(false)
