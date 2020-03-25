@@ -239,7 +239,7 @@
             </objects>
             <point key="canvasLocation" x="-433" y="31"/>
         </scene>
-        <!--Item 2-->
+        <!--Settings-->
         <scene sceneID="HRN-wB-b56">
             <objects>
                 <viewController id="lrs-iH-vs8" sceneMemberID="viewController">
@@ -265,13 +265,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tvK-1n-AIg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="iyR-wI-wsH"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="iyR-wI-wsH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMq-ny-qXY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="-307"/>
+            <point key="canvasLocation" x="1242" y="235"/>
         </scene>
-        <!--Item 1-->
+        <!--Call-->
         <scene sceneID="asN-an-lyz">
             <objects>
                 <viewController id="pqN-d8-K0o" sceneMemberID="viewController">
@@ -281,11 +281,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="h2i-p9-Oea"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="eny-Qq-KMD"/>
+                    <tabBarItem key="tabBarItem" title="Call" image="call" id="eny-Qq-KMD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TO1-4B-AeQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="340"/>
+            <point key="canvasLocation" x="1243" y="-415"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mh8-zq-emo">
@@ -308,5 +308,7 @@
     </scenes>
     <resources>
         <image name="avatarPlaceholder" width="101" height="101"/>
+        <image name="call" width="30" height="30"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>
