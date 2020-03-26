@@ -93,6 +93,21 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating {
         }
     }
     
+    //MARK: IB Actions
+    
+    @IBAction func filterSegmentValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            loadUser(filter: kCITY)
+        case 1:
+            loadUser(filter: kCOUNTRY)
+        case 2:
+            loadUser(filter: "")
+        default:
+            return
+        }
+    }
+    
     //Mark: search controller functions
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
