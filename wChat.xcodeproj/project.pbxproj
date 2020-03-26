@@ -11,10 +11,14 @@
 		76284FB0C5C8F6B758F6DC48 /* Pods_wChat_wChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA6B7979988C94B0CA09B4B /* Pods_wChat_wChatUITests.framework */; };
 		929A47004448FE97905951F5 /* Pods_wChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC9A61C86C534F49FADEE69 /* Pods_wChatTests.framework */; };
 		AB10BBE1242765F100268D39 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB10BBE0242765F100268D39 /* WelcomeViewController.swift */; };
+		AB14C63A242C5E760088D2E6 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14C639242C5E760088D2E6 /* UserTableViewController.swift */; };
+		AB14C63C242C8DAE0088D2E6 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14C63B242C8DAD0088D2E6 /* ChatsViewController.swift */; };
 		AB229F6123FDE8760067C210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB229F6023FDE8760067C210 /* AppDelegate.swift */; };
 		AB229F6623FDE8760067C210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6423FDE8760067C210 /* Main.storyboard */; };
 		AB229F6823FDE8780067C210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6723FDE8780067C210 /* Assets.xcassets */; };
 		AB229F6B23FDE8780067C210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */; };
+		AB6FCF0A242B2B7F009EB518 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */; };
+		ABA444A8242C272B003F0EC2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */; };
 		ABCFC12A24285DA700F5EE8E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12924285DA700F5EE8E /* .gitignore */; };
 		ABCFC12E242865E500F5EE8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */; };
 		ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC12F2428723D00F5EE8E /* FUsers.swift */; };
@@ -49,6 +53,8 @@
 		AAAC11F175B6488C2CCFC489 /* Pods-wChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wChat.release.xcconfig"; path = "Target Support Files/Pods-wChat/Pods-wChat.release.xcconfig"; sourceTree = "<group>"; };
 		AAE35223A0DF0D454792401B /* Pods-wChat-wChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wChat-wChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-wChat-wChatUITests/Pods-wChat-wChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB10BBE0242765F100268D39 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		AB14C639242C5E760088D2E6 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		AB14C63B242C8DAD0088D2E6 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		AB229F5D23FDE8750067C210 /* wChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB229F6023FDE8760067C210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB229F6523FDE8760067C210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 		AB229F6C23FDE8780067C210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/kimwang/Desktop/CSC690/project/wChat/wChat/Info.plist; sourceTree = "<absolute>"; };
 		AB229F7123FDE8780067C210 /* wChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB229F7C23FDE8780067C210 /* wChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		ABCFC12924285DA700F5EE8E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABCFC12F2428723D00F5EE8E /* FUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUsers.swift; sourceTree = "<group>"; };
@@ -120,6 +128,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AB14C638242C5DBB0088D2E6 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
 		AB229F5423FDE8750067C210 = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +162,11 @@
 			children = (
 				AB229F6023FDE8760067C210 /* AppDelegate.swift */,
 				ABCFC1372428CF0E00F5EE8E /* FinishRegistrationViewController.swift */,
+				AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */,
+				AB14C639242C5E760088D2E6 /* UserTableViewController.swift */,
+				AB14C63B242C8DAD0088D2E6 /* ChatsViewController.swift */,
 				AB10BBE0242765F100268D39 /* WelcomeViewController.swift */,
+				AB14C638242C5DBB0088D2E6 /* CustomCells */,
 				ABCFC13B2428D0A900F5EE8E /* Classes */,
 				ABCFC1392428CF2900F5EE8E /* Helpers */,
 				AB229F6423FDE8760067C210 /* Main.storyboard */,
@@ -417,10 +437,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB14C63A242C5E760088D2E6 /* UserTableViewController.swift in Sources */,
 				AB10BBE1242765F100268D39 /* WelcomeViewController.swift in Sources */,
+				ABA444A8242C272B003F0EC2 /* UserTableViewCell.swift in Sources */,
 				AB229F6123FDE8760067C210 /* AppDelegate.swift in Sources */,
 				ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */,
 				ABCFC13424287A5100F5EE8E /* CollectionReference.swift in Sources */,
+				AB14C63C242C8DAE0088D2E6 /* ChatsViewController.swift in Sources */,
+				AB6FCF0A242B2B7F009EB518 /* SettingsTableViewController.swift in Sources */,
 				ABCFC132242872F200F5EE8E /* Constants.swift in Sources */,
 				ABCFC1382428CF0E00F5EE8E /* FinishRegistrationViewController.swift in Sources */,
 				ABCFC13624287B1600F5EE8E /* HelperFunctions.swift in Sources */,

@@ -53,7 +53,7 @@ func imageFromInitials(firstName: String?, lastName: String?, withBlock: @escapi
     withBlock(img!)
 }
 
-func imageFromData(pictureData: String, withBlock: (_ image: UIImage?) -> Void) {
+func imageFromData(pictureData: String, withBlock: (_ image: UIImage?) -> Void) {//string->NSData->image
     
     var image: UIImage?
     
