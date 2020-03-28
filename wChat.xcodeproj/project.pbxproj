@@ -19,6 +19,7 @@
 		AB229F6B23FDE8780067C210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */; };
 		AB6FCF0A242B2B7F009EB518 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */; };
 		ABA444A8242C272B003F0EC2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */; };
+		ABBB8897242F0DFD0074069B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */; };
 		ABCFC12A24285DA700F5EE8E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12924285DA700F5EE8E /* .gitignore */; };
 		ABCFC12E242865E500F5EE8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */; };
 		ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFC12F2428723D00F5EE8E /* FUsers.swift */; };
@@ -65,6 +66,7 @@
 		AB229F7C23FDE8780067C210 /* wChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		ABCFC12924285DA700F5EE8E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABCFC12F2428723D00F5EE8E /* FUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUsers.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				AB14C639242C5E760088D2E6 /* UserTableViewController.swift */,
 				AB14C63B242C8DAD0088D2E6 /* ChatsViewController.swift */,
 				AB10BBE0242765F100268D39 /* WelcomeViewController.swift */,
+				ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */,
 				AB14C638242C5DBB0088D2E6 /* CustomCells */,
 				ABCFC13B2428D0A900F5EE8E /* Classes */,
 				ABCFC1392428CF2900F5EE8E /* Helpers */,
@@ -443,6 +446,7 @@
 				AB229F6123FDE8760067C210 /* AppDelegate.swift in Sources */,
 				ABCFC1302428723D00F5EE8E /* FUsers.swift in Sources */,
 				ABCFC13424287A5100F5EE8E /* CollectionReference.swift in Sources */,
+				ABBB8897242F0DFD0074069B /* ProfileTableViewController.swift in Sources */,
 				AB14C63C242C8DAE0088D2E6 /* ChatsViewController.swift in Sources */,
 				AB6FCF0A242B2B7F009EB518 /* SettingsTableViewController.swift in Sources */,
 				ABCFC132242872F200F5EE8E /* Constants.swift in Sources */,
