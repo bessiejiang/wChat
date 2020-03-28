@@ -26,28 +26,87 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Users"
+        navigationItem.largeTitleDisplayMode = .never
+        tableView.tableFooterView = UIView()
+        
+        navigationItem.searchController = searchController
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        
         loadUser(filter: kCITY)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return 1
+            
+        } else {
+            return allUserGroupped.count
+        }
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allUsers.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filterdUsers.count
+            
+        } else {
+            
+            //find sectionTitle
+            let sectionTitle = self.sectionTitleList[section] //pass our section to get the section title
+            //user for given tiel
+            let users = self.allUserGroupped[sectionTitle]
+            return users!.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
-        cell.generateCellWith(fUser: allUsers[indexPath.row], indexPath: indexPath)
+        var user : FUser//need to set these users dynamically
         
-        
+        if searchController.isActive && searchController.searchBar.text != "" {//the user is searching
+            user = filterdUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUserGroupped[sectionTitle]
+//            print("printing...")
+//            print(users!.count)
+//            print(indexPath.row)
+            user = users![indexPath.row]
+        }
 
+        cell.generateCellWith(fUser: user, indexPath: indexPath)
+        
         return cell
+    }
+    
+    //MARK: table view delegate (below 3)
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {//show the section tile bar
+        if searchController.isActive && searchController.searchBar.text != "" {//the user is searching
+            return ""
+        } else {
+            return sectionTitleList[section]
+        }
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if searchController.isActive && searchController.searchBar.text != "" {//the user is searching
+           return nil
+       } else {
+        return self.sectionTitleList
+       }
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { //able to see a section abbr on the side, click it and it will jump to the section
+        return index
     }
     
     func loadUser(filter: String) {//filter: city, country or all
@@ -87,6 +146,8 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating {
                     }
                 }
                 //split to group by initials:
+                self.splitDataIntoSection()
+                self.tableView.reloadData()
             }
             self.tableView.reloadData()
             ProgressHUD.dismiss()
@@ -118,5 +179,24 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating {
     }
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+    
+    //MARK: helper functions
+    fileprivate func splitDataIntoSection() {//can only be used in this class
+        
+        var sectionTitle : String = ""
+        for i in 0..<self.allUsers.count {
+            let currentUser = self.allUsers[i]
+            let firstChar = currentUser.firstname.first! //first letter of firstname
+            let firstCarString = "\(firstChar)"
+            
+            if firstCarString != sectionTitle {
+                sectionTitle = firstCarString
+                self.allUserGroupped[sectionTitle] = []
+                self.sectionTitleList.append(sectionTitle)
+                
+            }
+            self.allUserGroupped[firstCarString]?.append(currentUser) //key is the first Car String
+        }
     }
 }
