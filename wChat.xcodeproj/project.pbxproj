@@ -163,12 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				AB229F6023FDE8760067C210 /* AppDelegate.swift */,
-				ABCFC1372428CF0E00F5EE8E /* FinishRegistrationViewController.swift */,
-				AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */,
-				AB14C639242C5E760088D2E6 /* UserTableViewController.swift */,
-				AB14C63B242C8DAD0088D2E6 /* ChatsViewController.swift */,
-				AB10BBE0242765F100268D39 /* WelcomeViewController.swift */,
-				ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */,
+				ABBB8898243300F70074069B /* WelcomeView */,
+				ABBB88992433010E0074069B /* MainViews */,
+				ABBB889A243301340074069B /* SecondaryViews */,
 				AB14C638242C5DBB0088D2E6 /* CustomCells */,
 				ABCFC13B2428D0A900F5EE8E /* Classes */,
 				ABCFC1392428CF2900F5EE8E /* Helpers */,
@@ -179,6 +176,33 @@
 				ABCFC12D242865E500F5EE8E /* GoogleService-Info.plist */,
 			);
 			path = wChat;
+			sourceTree = "<group>";
+		};
+		ABBB8898243300F70074069B /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				ABCFC1372428CF0E00F5EE8E /* FinishRegistrationViewController.swift */,
+				AB10BBE0242765F100268D39 /* WelcomeViewController.swift */,
+			);
+			path = WelcomeView;
+			sourceTree = "<group>";
+		};
+		ABBB88992433010E0074069B /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */,
+				AB14C63B242C8DAD0088D2E6 /* ChatsViewController.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		ABBB889A243301340074069B /* SecondaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				AB14C639242C5E760088D2E6 /* UserTableViewController.swift */,
+				ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */,
+			);
+			path = SecondaryViews;
 			sourceTree = "<group>";
 		};
 		ABCFC1392428CF2900F5EE8E /* Helpers */ = {

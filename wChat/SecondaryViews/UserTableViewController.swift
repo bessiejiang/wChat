@@ -9,9 +9,7 @@
 import UIKit
 import Firebase
 import ProgressHUD
-class UserTableViewController: UITableViewController, UISearchResultsUpdating {
-    
-    
+class UserTableViewController: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {//the third one is to call the protocol
 
     
     @IBOutlet weak var headerView: UIView!
@@ -83,11 +81,17 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating {
             user = users![indexPath.row]
         }
 
+        
         cell.generateCellWith(fUser: user, indexPath: indexPath)
+        //set the delegate here after generating (need indexPath generated)
+        cell.delegate = self
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     //MARK: table view delegate (below 3)
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {//show the section tile bar
         if searchController.isActive && searchController.searchBar.text != "" {//the user is searching
@@ -198,5 +202,25 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating {
             }
             self.allUserGroupped[firstCarString]?.append(currentUser) //key is the first Car String
         }
+    }
+    
+    //MARK: UserTableViewCellDelegate
+    func didTapAvatarImage(indexPath: IndexPath) {
+//        print("User avatar tap at \(indexPath)")
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileTableViewController
+        
+        //user dependes on wether we are in search mode or not
+        var user : FUser//need to set these users dynamically
+        if searchController.isActive && searchController.searchBar.text != "" {//the user is searching
+            user = filterdUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUserGroupped[sectionTitle]
+
+            user = users![indexPath.row]
+        }
+
+        profileVC.user = user
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
 }
