@@ -18,6 +18,7 @@
 		AB229F6823FDE8780067C210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6723FDE8780067C210 /* Assets.xcassets */; };
 		AB229F6B23FDE8780067C210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB229F6923FDE8780067C210 /* LaunchScreen.storyboard */; };
 		AB6FCF0A242B2B7F009EB518 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */; };
+		AB852914243304EC001C0078 /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB852913243304EC001C0078 /* Recent.swift */; };
 		ABA444A8242C272B003F0EC2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */; };
 		ABBB8897242F0DFD0074069B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */; };
 		ABCFC12A24285DA700F5EE8E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ABCFC12924285DA700F5EE8E /* .gitignore */; };
@@ -65,6 +66,7 @@
 		AB229F7123FDE8780067C210 /* wChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB229F7C23FDE8780067C210 /* wChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6FCF09242B2B7F009EB518 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		AB852913243304EC001C0078 /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		ABA444A7242C272B003F0EC2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		ABBB8896242F0DFC0074069B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		ABCFC12924285DA700F5EE8E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				ABCFC12F2428723D00F5EE8E /* FUsers.swift */,
+				AB852913243304EC001C0078 /* Recent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB14C63A242C5E760088D2E6 /* UserTableViewController.swift in Sources */,
+				AB852914243304EC001C0078 /* Recent.swift in Sources */,
 				AB10BBE1242765F100268D39 /* WelcomeViewController.swift in Sources */,
 				ABA444A8242C272B003F0EC2 /* UserTableViewCell.swift in Sources */,
 				AB229F6123FDE8760067C210 /* AppDelegate.swift in Sources */,

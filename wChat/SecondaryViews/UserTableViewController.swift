@@ -113,6 +113,22 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
         return index
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true) //we don't want the selected effect
+        //check if we are in search mode
+        var user : FUser//need to set these users dynamically
+        if searchController.isActive && searchController.searchBar.text != "" {//the user is searching
+            user = filterdUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUserGroupped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        //use this to start chatting with this use
+        startPrivateChat(user1: FUser.currentUser()!, user2: user)
+    }
+    
     func loadUser(filter: String) {//filter: city, country or all
         ProgressHUD.show()
         var query: Query!
