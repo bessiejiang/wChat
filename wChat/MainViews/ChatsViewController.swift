@@ -32,13 +32,15 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: tableViewDateSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("here!")
-        return 0
+        print("we have \(recentChats.count) recents")
+        return recentChats.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RecentChatsTableViewCell
         //setup our cell
         
-        
+        let recent = recentChats[indexPath.row]
+        cell.generateCell(recentChat: recent, indexPath: indexPath)
         
         
         return cell

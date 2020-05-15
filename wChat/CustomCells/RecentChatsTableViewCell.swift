@@ -74,7 +74,7 @@ class RecentChatsTableViewCell: UITableViewCell {
             if (created as! String).count != 14 {//date saved in firebase is 14 digit long
                 date = Date()
             } else {
-                date = DateFormatter().date(from: created as! String)!
+                date = dateFormatter().date(from: created as! String)!
             }
         } else {
             date = Date()
