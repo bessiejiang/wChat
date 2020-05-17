@@ -6,4 +6,6 @@ profileViewTableViewController ->profileTableViewController
 
 toggleSendButtonEnabled : 
     BOOL hasText = TRUE //[self.contentView.textView hasText];
+    
+changed my user name
 
