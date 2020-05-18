@@ -168,8 +168,19 @@ class ChatViewController: JSQMessagesViewController {
         } else {
             return NSAttributedString(string: "")
         }
-        
     }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAt indexPath: IndexPath!) -> CGFloat {
+        
+        let data = messages[indexPath.row]
+        
+        if data.senderId == FUser.currentId() {
+            return kJSQMessagesCollectionViewCellLabelHeightDefault
+        } else {
+            return 0.0
+        }
+    }
+    
     
     //MARK: JSQMessages Delegate functions
     
