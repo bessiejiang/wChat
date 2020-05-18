@@ -27,6 +27,11 @@ class ChatViewController: JSQMessagesViewController {
     
     let legitTypes = [kAUDIO, kVIDEO, kTEXT, kLOCATION, kPICTURE]
     
+    var maxMessageNumber = 0
+    var minMessageNumber = 0
+    var loadOld = false
+    var loadedMessagesCount = 0
+    
     var messages: [JSQMessage] = []
     var objectMessages: [NSDictionary] = []
     var loadedMessages: [NSDictionary] = []
@@ -154,6 +159,28 @@ class ChatViewController: JSQMessagesViewController {
         
         }
     }
+    
+    // MARK: INsertMessages
+    
+    func insertMessages() {
+         
+         maxMessageNumber = loadedMessages.count - loadedMessagesCount
+         minMessageNumber = maxMessageNumber - kNUMBEROFMESSAGES
+         
+         if minMessageNumber < 0 {
+             minMessageNumber = 0
+         }
+         
+         for i in minMessageNumber ..< maxMessageNumber {
+             let messageDictionary = loadedMessages[i]
+             
+             // insert message
+             
+             loadedMessagesCount += 1
+         }
+         
+         self.showLoadEarlierMessagesHeader = (loadedMessagesCount != loadedMessages.count)
+     }
 
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
