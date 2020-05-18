@@ -25,6 +25,10 @@ class ChatViewController: JSQMessagesViewController {
     var group: NSDictionary?
     var withUsers: [FUser] = []
     
+    var typingListener: ListenerRegistration?
+    var updatedChatListener: ListenerRegistration?
+    var newChatListener: ListenerRegistration?
+    
     let legitTypes = [kAUDIO, kVIDEO, kTEXT, kLOCATION, kPICTURE]
     
     var maxMessageNumber = 0
@@ -258,9 +262,55 @@ class ChatViewController: JSQMessagesViewController {
         
         self.initialLoadComplete = true
         
-            print("we have \(self.messages.count) messages loaded")
+        print("we have \(self.messages.count) messages loaded")
+        self.listenForNewChats()
         }
     }
+
+   func listenForNewChats() {
+       
+       var lastMessageDate = "0"
+       
+       if loadedMessages.count > 0 {
+           lastMessageDate = loadedMessages.last![kDATE] as! String
+       }
+       
+       newChatListener = reference(.Message).document(FUser.currentId()).collection(chatRoomId).whereField(kDATE, isGreaterThan: lastMessageDate).addSnapshotListener({ (snapshot, error) in
+           
+           guard let snapshot = snapshot else { return }
+           
+           if !snapshot.isEmpty {
+               
+               for diff in snapshot.documentChanges {
+                   
+                   if (diff.type == .added) {
+                       
+                       let item = diff.document.data() as NSDictionary
+                       
+                       if let type = item[kTYPE] {
+                           
+                           if self.legitTypes.contains(type as! String) {
+                               
+                               //this is for picture messages
+                               if type as! String == kPICTURE {
+                                   //add to pictures
+                               }
+                               
+                               if self.insertInitialLoadMessages(messageDictionary: item) {
+                                   
+                                   JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+                               }
+                               
+                               self.finishReceivingMessage()
+                           }
+                       }
+                       
+                   }
+               }
+               
+           }
+       })
+   }
     
     // MARK: INsertMessages
     
