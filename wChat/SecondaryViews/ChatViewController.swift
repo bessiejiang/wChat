@@ -46,6 +46,33 @@ class ChatViewController: JSQMessagesViewController {
     var outgoingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     
     var incomingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+    
+    //MARK: CustomHeaders
+    
+    let leftBarButtonView: UIView = {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 44))
+        return view
+    }()
+    let avatarButton: UIButton = {
+       let button = UIButton(frame: CGRect(x: 0, y: 10, width: 25, height: 25))
+        return button
+    }()
+    let titleLabel: UILabel = {
+       let title = UILabel(frame: CGRect(x: 30, y: 10, width: 140, height: 15))
+        title.textAlignment = .left
+        title.font = UIFont(name: title.font.fontName, size: 14)
+        
+        return title
+    }()
+    let subTitleLabel: UILabel = {
+       let subTitle = UILabel(frame: CGRect(x: 30, y: 25, width: 140, height: 15))
+        subTitle.textAlignment = .left
+        subTitle.font = UIFont(name: subTitle.font.fontName, size: 10)
+        
+        return subTitle
+    }()
+    
     override func viewDidLayoutSubviews() {
         perform(Selector(("jsq_updateCollectionViewInsets")))
     }
@@ -59,6 +86,8 @@ class ChatViewController: JSQMessagesViewController {
         
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        setCustomTitle()
         
         loadMessages()
         
@@ -118,8 +147,35 @@ class ChatViewController: JSQMessagesViewController {
 //
 //        clearRecentCounter(chatRoomId: chatRoomId)
 //        removeListeners()
-//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func infoButtonPressed() {
+        print("")
+//
+//        let mediaVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mediaView") as! PicturesCollectionViewController
+//
+//        mediaVC.allImageLinks = allPictureMessages
+//
+//        self.navigationController?.pushViewController(mediaVC, animated: true)
+    }
+    
+    @objc func showGroup() {
+        print("")
+//        let groupVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groupView") as! GroupViewController
+//
+//        groupVC.group = group!
+//        self.navigationController?.pushViewController(groupVC, animated: true)
+    }
+    
+    @objc func showUserProfile() {
+        
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileTableViewController
+        
+        profileVC.user = withUsers.first!
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
     
     //MARK: JSQMessage DataSource functions
     
@@ -426,6 +482,36 @@ class ChatViewController: JSQMessagesViewController {
         self.collectionView.reloadData()
     }
     
+    //MARK: UpdateUI
+    
+    func setCustomTitle() {
+        
+        leftBarButtonView.addSubview(avatarButton)
+        leftBarButtonView.addSubview(titleLabel)
+        leftBarButtonView.addSubview(subTitleLabel)
+        
+        let infoButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(self.infoButtonPressed))
+        
+        self.navigationItem.rightBarButtonItem = infoButton
+        
+        let leftBarButtonItem = UIBarButtonItem(customView: leftBarButtonView)
+        self.navigationItem.leftBarButtonItems?.append(leftBarButtonItem)
+        
+        if isGroup! {
+            avatarButton.addTarget(self, action: #selector(self.showGroup), for: .touchUpInside)
+        } else {
+            avatarButton.addTarget(self, action: #selector(self.showUserProfile), for: .touchUpInside)
+        }
+        
+        getUsersFromFirestore(withIds: memberIds) { (withUsers) in
+            
+            self.withUsers = withUsers
+            self.getAvatarImages()
+            if !self.isGroup! {
+                self.setUIForSingleChat()
+            }
+        }
+    }
     
     // MARK: Helper functions
     
