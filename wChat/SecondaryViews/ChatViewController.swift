@@ -25,6 +25,15 @@ class ChatViewController: JSQMessagesViewController {
     var group: NSDictionary?
     var withUsers: [FUser] = []
     
+    let legitTypes = [kAUDIO, kVIDEO, kTEXT, kLOCATION, kPICTURE]
+    
+    var messages: [JSQMessage] = []
+    var objectMessages: [NSDictionary] = []
+    var loadedMessages: [NSDictionary] = []
+    var allPictureMessages: [String] = []
+    
+    var initialLoadComplete = false
+    
     var outgoingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     
     var incomingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
@@ -123,6 +132,28 @@ class ChatViewController: JSQMessagesViewController {
         
         outgoingMessage!.sendMessage(chatRoomID: chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: memberIds, membersToPush: membersToPush)
     }
+    
+    //MARK: LoadMessages
+    
+    func loadMessage() {
+        reference(.Message).document(FUser.currentId()).collection(chatRoomId).order(by: kDATE, descending: true).limit(to: 11).getDocuments { (snapshot, error) in
+        
+        guard let snapshot = snapshot else {
+            self.initialLoadComplete = true
+            return
+        }
+        
+        let sorted = ((dictionaryFromSnapshots(snapshots: snapshot.documents)) as NSArray).sortedArray(using: [NSSortDescriptor(key: kDATE, ascending: true)]) as! [NSDictionary]
+        
+        //remove bad messages
+        self.loadedMessages = self.removeBadMessages(allMessages: sorted)
+            
+        // insert messages
+        
+        self.initialLoadComplete = true
+        
+        }
+    }
 
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
@@ -132,6 +163,26 @@ class ChatViewController: JSQMessagesViewController {
             updateSendButton(isSend: false)
         }
     }
-   
-
+    
+    // MARK: Helper functions
+    
+    func removeBadMessages(allMessages: [NSDictionary]) -> [NSDictionary] {
+        
+        var tempMessages = allMessages
+        
+        for message in tempMessages {
+            
+            if message[kTYPE] != nil {
+                if !self.legitTypes.contains(message[kTYPE] as! String) {
+                    
+                    //remove the message
+                    tempMessages.remove(at: tempMessages.index(of: message)!)
+                }
+            } else {
+                tempMessages.remove(at: tempMessages.index(of: message)!)
+            }
+        }
+        
+        return tempMessages
+    }
 }
