@@ -174,13 +174,33 @@ class ChatViewController: JSQMessagesViewController {
          for i in minMessageNumber ..< maxMessageNumber {
              let messageDictionary = loadedMessages[i]
              
-             // insert message
+             insertInitialLoadMessages(messageDictionary: messageDictionary)
              
              loadedMessagesCount += 1
          }
          
          self.showLoadEarlierMessagesHeader = (loadedMessagesCount != loadedMessages.count)
      }
+    
+    func insertInitialLoadMessages(messageDictionary: NSDictionary) -> Bool {
+        
+        let incomingMessage = IncomingMessage(collectionView_: self.collectionView!)
+        
+        if (messageDictionary[kSENDERID] as! String) != FUser.currentId() {
+            
+            OutgoingMessage.updateMessage(withId: messageDictionary[kMESSAGEID] as! String, chatRoomId: chatRoomId, memberIds: memberIds)
+        }
+        
+        
+        let message = incomingMessage.createMessage(messageDictionary: messageDictionary, chatRoomId: chatRoomId)
+        
+        if message != nil {
+            objectMessages.append(messageDictionary)
+            messages.append(message!)
+        }
+        
+        return isIncoming(messageDictionary: messageDictionary)
+    }
 
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
@@ -211,5 +231,14 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         return tempMessages
+    }
+    
+    func isIncoming(messageDictionary: NSDictionary) -> Bool {
+        
+        if FUser.currentId() == messageDictionary[kSENDERID] as! String {
+            return false
+        } else {
+            return true
+        }
     }
 }
