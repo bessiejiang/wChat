@@ -1,11 +1,3 @@
-//
-//  IncomingMessages.swift
-//  iChat
-//
-//  Created by David Kababyan on 17/06/2018.
-//  Copyright © 2018 David Kababyan. All rights reserved.
-//
-
 import Foundation
 import JSQMessagesViewController
 

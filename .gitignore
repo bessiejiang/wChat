@@ -1,2 +1,3 @@
 pods
 *.plist
+.DS_Store
