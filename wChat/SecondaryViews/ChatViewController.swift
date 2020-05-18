@@ -122,6 +122,55 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        
+        if indexPath.item % 3 == 0 {
+            let message = messages[indexPath.row]
+            
+            return JSQMessagesTimestampFormatter.shared()?.attributedTimestamp(for: message.date)
+        }
+        
+        return nil
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        
+        if indexPath.item % 3 == 0 {
+            
+            return kJSQMessagesCollectionViewCellLabelHeightDefault
+        }
+        
+        return 0.0
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        
+        let message = objectMessages[indexPath.row]
+        
+        let status: NSAttributedString!
+        
+        let attributedStringColor = [NSAttributedString.Key.foregroundColor : UIColor.darkGray]
+        
+        switch message[kSTATUS] as! String {
+        case kDELIVERED:
+            status = NSAttributedString(string: kDELIVERED)
+        case kREAD:
+            let statusText = "Read" + " " + readTimeFrom(dateString: message[kREADDATE] as! String)
+            
+            status = NSAttributedString(string: statusText, attributes: attributedStringColor)
+            
+        default:
+            status = NSAttributedString(string: "✔︎")
+        }
+        
+        if indexPath.row == (messages.count - 1) {
+            return status
+        } else {
+            return NSAttributedString(string: "")
+        }
+        
+    }
+    
     //MARK: JSQMessages Delegate functions
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
@@ -254,6 +303,17 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     // MARK: Helper functions
+    
+    func readTimeFrom(dateString: String) -> String {
+        
+        let date = dateFormatter().date(from: dateString)
+        
+        let currentDateFormat = dateFormatter()
+        currentDateFormat.dateFormat = "HH:mm"
+        
+        return currentDateFormat.string(from: date!)
+        
+    }
     
     func removeBadMessages(allMessages: [NSDictionary]) -> [NSDictionary] {
         
