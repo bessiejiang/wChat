@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
-class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,RecentChatsTableViewCellDelegate, UISearchResultsUpdating {
+class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecentChatsTableViewCellDelegate, UISearchResultsUpdating {
     
     
     //the last two are protocols
@@ -23,9 +23,9 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         loadRecentChats()
-        tableView.tableFooterView=UIView()
+        
+        tableView.tableFooterView = UIView()
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         recentListener.remove()
@@ -34,14 +34,16 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController=searchController
-        navigationItem.hidesSearchBarWhenScrolling=true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
         
-        searchController.searchResultsUpdater=self
-        searchController.dimsBackgroundDuringPresentation=false//deprecated 
-        definesPresentationContext=true
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
         
+
         setTableViewHeader()
         
         
@@ -56,28 +58,31 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: tableViewDateSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if searchController.isActive && searchController.searchBar.text != " "{
+        if searchController.isActive && searchController.searchBar.text != "" {
             return filteredChats.count
-        }else{
-            return recentChats.count
+        } else {
+           return recentChats.count
         }
         
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RecentChatsTableViewCell
-        //setup our cell
-        cell.delegate=self
         
-        var recent : NSDictionary!
+        cell.delegate = self
         
-        if searchController.isActive && searchController.searchBar.text != " "{
-            recent=filteredChats[indexPath.row]
-        }else{
-            recent=recentChats[indexPath.row]
+        var recent: NSDictionary!
+        
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            recent = filteredChats[indexPath.row]
+        } else {
+            recent = recentChats[indexPath.row]
         }
         
         cell.generateCell(recentChat: recent, indexPath: indexPath)
+        
         
         
         return cell
@@ -89,28 +94,31 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        var tempRecent : NSDictionary!
         
-        if searchController.isActive && searchController.searchBar.text != " "{
-            tempRecent=filteredChats[indexPath.row]
-        }else{
-            tempRecent=recentChats[indexPath.row]
+        var tempRecent: NSDictionary!
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            tempRecent = filteredChats[indexPath.row]
+        } else {
+            tempRecent = recentChats[indexPath.row]
         }
-        
+
         var muteTitle = "Unmute"
         var mute = false
         
-        if(tempRecent[kMEMBERSTOPUSH] as! [String]).contains(FUser.currentId()){
-            muteTitle="Mute"
-            mute=true
+        
+        if (tempRecent[kMEMBERSTOPUSH] as! [String]).contains(FUser.currentId()) {
+            
+            muteTitle = "Mute"
+            mute = true
         }
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
             
             self.recentChats.remove(at: indexPath.row)
-
+            
             deleteRecentChat(recentChatDictionary: tempRecent)
-
+            
             self.tableView.reloadData()
         }
         
@@ -123,6 +131,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         muteAction.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         
         return [deleteAction, muteAction]
+        
     }
     
     
@@ -183,28 +192,31 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
            
         })
     }
-    //MARK: custom tableviewHeader
-    func setTableViewHeader(){
-        let headerView=UIView(frame: CGRect(x: 0 , y: 0,width:tableView.frame.width , height: 45))
-        let btnView = UIView(frame: CGRect(x: 0, y: 5, width: tableView.frame.width, height: 35))
-        let groupBtn=UIButton(frame: CGRect(x: tableView.frame.width-110, y: 10, width: 100, height: 20))
+    //MARK: Custom tableViewHeader
+    
+    func setTableViewHeader() {
         
-        groupBtn.addTarget(self, action: #selector(self.groupBtnPressed), for: .touchUpInside)
-        groupBtn.setTitle("New Group", for: .normal)
-        let buttonColor=#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        groupBtn.setTitleColor(buttonColor, for: .normal)
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 45))
         
-        let lineView=UIView( frame: CGRect(x: 0, y: tableView.frame.height-1 , width: tableView.frame.width, height: 1) )
-        lineView.backgroundColor=#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let buttonView = UIView(frame: CGRect(x: 0, y: 5, width: tableView.frame.width, height: 35))
+        let groupButton = UIButton(frame: CGRect(x: tableView.frame.width - 110, y: 10, width: 100, height: 20))
+        groupButton.addTarget(self, action: #selector(self.groupButtonPressed), for: .touchUpInside)
+        groupButton.setTitle("New Group", for: .normal)
+        let buttonColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        groupButton.setTitleColor(buttonColor, for: .normal)
         
-        btnView.addSubview(groupBtn)
-        btnView.addSubview(btnView)
-        btnView.addSubview(lineView)
         
-        tableView.tableHeaderView=headerView
+        let lineView = UIView(frame: CGRect(x: 0, y: headerView.frame.height - 1, width: tableView.frame.width, height: 1))
+        lineView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
+        buttonView.addSubview(groupButton)
+        headerView.addSubview(buttonView)
+        headerView.addSubview(lineView)
+        
+        tableView.tableHeaderView = headerView
     }
-    @objc func groupBtnPressed(){
+    
+     @objc func groupButtonPressed() {
         print("hello")
     }
    
