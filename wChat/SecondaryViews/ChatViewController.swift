@@ -56,6 +56,8 @@ class ChatViewController: JSQMessagesViewController {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
+        loadMessages()
+        
         self.senderId = FUser.currentId()
         self.senderDisplayName = FUser.currentUser()!.firstname
         //fix for Ipgone x
@@ -80,6 +82,44 @@ class ChatViewController: JSQMessagesViewController {
 //        clearRecentCounter(chatRoomId: chatRoomId)
 //        removeListeners()
 //        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: JSQMessage DataSource functions
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let data = messages[indexPath.row]
+        
+        //set text color
+        if data.senderId == FUser.currentId() {
+            cell.textView?.textColor = .white
+        } else {
+            cell.textView?.textColor = .black
+        }
+        
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        
+        return messages[indexPath.row]
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
+        let data = messages[indexPath.row]
+        
+        if data.senderId == FUser.currentId() {
+            return outgoingBubble
+        } else {
+            return incomingBubble
+        }
     }
     
     //MARK: JSQMessages Delegate functions
@@ -140,7 +180,7 @@ class ChatViewController: JSQMessagesViewController {
     
     //MARK: LoadMessages
     
-    func loadMessage() {
+    func loadMessages() {
         reference(.Message).document(FUser.currentId()).collection(chatRoomId).order(by: kDATE, descending: true).limit(to: 11).getDocuments { (snapshot, error) in
         
         guard let snapshot = snapshot else {
@@ -152,11 +192,13 @@ class ChatViewController: JSQMessagesViewController {
         
         //remove bad messages
         self.loadedMessages = self.removeBadMessages(allMessages: sorted)
-            
-        // insert messages
+        
+        self.insertMessages()
+        self.finishReceivingMessage(animated: true)
         
         self.initialLoadComplete = true
         
+            print("we have \(self.messages.count) messages loaded")
         }
     }
     
